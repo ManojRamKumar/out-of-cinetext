@@ -107,10 +107,10 @@
     overflow: hidden;
 }
 
-/* Portrait background */
-
+/* Portrait background and subtle organic oval */
 .author-portrait {
     position: relative;
+    isolation: isolate;
     width: 100%;
     aspect-ratio: 1 / 1;
     background: #dcc9a8;
@@ -118,26 +118,47 @@
     margin: 0;
 }
 
-/* Remove previous decorative shapes */
+.author-portrait::before {
+    content: "";
+    position: absolute;
+    width: 72%;
+    height: 78%;
+    left: 14%;
+    bottom: 0;
+    background: #ceb993;
+    border-radius: 48% 52% 43% 57% / 48% 46% 54% 52%;
+    opacity: 0.75;
+    z-index: 0;
+}
 
-.author-portrait::before,
 .author-portrait::after {
     display: none;
 }
 
-/* Profile image */
-
 .author-portrait img {
     position: absolute;
+    z-index: 1;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
-    height: 100%;
+    width: 78%;
+    height: 84%;
     object-fit: contain;
     object-position: center bottom;
     display: block;
     filter: none;
+}
+
+@media (max-width: 768px) {
+    .author-portrait img {
+        width: 76%;
+        height: 82%;
+    }
+    .author-portrait::before {
+        width: 74%;
+        left: 13%;
+        height: 76%;
+    }
 }
 
 /* Editorial nameplate */
