@@ -350,3 +350,19 @@
         width: min(240px, 100%);
     }
 }
+
+/* Remove decorative drop cap */
+.body p:first-child::first-letter {
+    float: none;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0;
+    color: inherit;
+}
+
+/* Highlight author introduction */
+
+.intro-name {
+    color: var(--accent);
+    font-weight: 700;
+}
